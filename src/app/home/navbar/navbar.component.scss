@@ -1,0 +1,23 @@
+@import '../../../assets/scss/color.scss';
+
+.topbar{
+    background-color: $primaryColor !important;
+    display: flex;
+    justify-content: space-between;
+    padding-right: 60px;
+    padding-left: 60px;
+   
+    mat-icon {
+        color: #fff !important;
+    }
+    .actions {
+        display: flex;
+        gap: 1rem;
+    }
+
+    .logo-navbar{
+        border-radius: 100%;
+        width: 50px;
+        animation: bounce 1s infinite;
+    }
+}

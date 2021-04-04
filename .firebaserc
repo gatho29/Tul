@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "ferreterostul": {
+      "hosting": {
+        "proyectoTul": [
+          "ferreterostul"
+        ]
+      }
+    }
+  }
+}

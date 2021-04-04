@@ -1,0 +1,15 @@
+.error-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+
+    p {
+        font-size: 50px;
+    }
+    div {
+        font-size: 20px;
+    }
+}

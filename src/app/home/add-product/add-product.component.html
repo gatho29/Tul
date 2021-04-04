@@ -1,0 +1,43 @@
+<div class="add-product pl-3">
+    <h2 mat-dialog-title>Add Product</h2>
+    <form [formGroup]="addProductForm">  
+        <mat-dialog-content class="content w-full">
+            <!-- Product name -->
+            <mat-form-field appearance="outline" class="w-full">
+                <mat-label>Product name</mat-label>
+                <input formControlName="productName" matInput type="text">
+                <mat-icon matSuffix>construction</mat-icon>
+            </mat-form-field>
+            <!-- Description -->
+            <mat-form-field appearance="outline" class="w-full">
+                <mat-label>Description</mat-label>
+                <input matInput formControlName="description" type="text">
+                <mat-icon matSuffix>description</mat-icon>
+            </mat-form-field>
+            <!-- Price -->
+            <mat-form-field appearance="outline" class="w-full">
+                <mat-label>Price</mat-label>
+                <input matInput formControlName="price" type="text">
+                <mat-icon matSuffix>attach_money</mat-icon>
+            </mat-form-field>
+            <!-- Img -->
+            <mat-form-field appearance="outline" class="w-full">
+                <mat-label>SKU</mat-label>
+                <input matInput formControlName="sku" type="text">
+                <mat-icon matSuffix>qr_code_2</mat-icon>
+            </mat-form-field>
+            
+            <mat-form-field appearance="outline" class="w-full">
+                <mat-label>Image (Link)</mat-label>
+                <input matInput formControlName="imageLink" type="text">
+                <mat-icon matSuffix>image</mat-icon>
+            </mat-form-field>
+    
+        </mat-dialog-content>
+    </form>
+
+    <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close>Cancel</button>
+        <button mat-flat-button class="bg-primary text-white" (click)="add()">Save</button>
+    </mat-dialog-actions>
+</div>

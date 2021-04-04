@@ -1,0 +1,9 @@
+@import "./animations.scss";
+@import "./spacing.scss";
+@import "./color.scss";
+
+.logo {
+    border-radius: 100%;
+    width: 10%;
+    animation: bounce 1s infinite;
+}

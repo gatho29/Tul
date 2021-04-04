@@ -1,0 +1,25 @@
+.login-container {
+    background-color: #f0f0f0;
+    height: 100%;
+    width: 100%;
+
+    .header {
+        align-items: center;
+        background-image: url(../../../assets/images/fondogreen.jpeg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        color: white;
+        display: flex;
+        justify-content: center;
+        height: 300px;
+    }
+    .content {
+        background-color: white;
+        border-radius: 10px;
+        height: 300px;
+        margin: auto;
+        margin-top: -70px;
+        position: relative;
+        width: 400px;
+    }
+}

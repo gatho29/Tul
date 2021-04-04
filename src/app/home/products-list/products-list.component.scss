@@ -1,0 +1,11 @@
+.container {
+  height: auto;
+  gap: 2rem;
+
+  .products-list {
+    display: flex;
+    gap: 2rem;
+    // justify-content: space-between;
+    flex-flow: wrap;
+  }
+}

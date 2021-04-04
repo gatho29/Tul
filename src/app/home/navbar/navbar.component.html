@@ -1,0 +1,20 @@
+<mat-toolbar class="topbar">
+    <!-- Logo -->
+    <img class="logo-navbar" src="../../../assets/images/logo-tul.jpg">
+    
+    <!-- Actions -->
+    <div class="actions">
+        <button mat-icon-button matTooltip="Status carts" (click)="statusPruduct()">
+            <mat-icon>local_shipping</mat-icon>
+        </button>
+        <button mat-icon-button matTooltip="Add Product" (click)='addProduct()'>
+            <mat-icon>queue</mat-icon>
+        </button>
+        <button mat-icon-button matBadge="7" matBadgeColor="warn" matTooltip="Shopping cart" (click)="viewOrder()">
+            <mat-icon>shopping_cart</mat-icon>
+        </button>
+        <button mat-icon-button matTooltip="Log Out" (click)="logout()">
+            <mat-icon>power_settings_new</mat-icon>
+        </button>
+    </div>
+</mat-toolbar>

@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+@import "../src/assets/scss/main.scss";
+
+html {
+    height: 100%;
+    body {
+        height: 100%;
+        margin: 0;
+        font-family: Roboto, "Helvetica Neue", sans-serif;
+        background-color: rgb(245, 245, 245);
+    }
+}
+
+.w-full {
+    width: 100%;
+}
+.h-100 {
+    height: 100%;
+}
