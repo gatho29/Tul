@@ -1,8 +1,7 @@
 <div class="product-card">
-    <img [src]="img"
-        alt="product" width="80px" height="80px">
+    <img [src]="img" alt="product" width="80px" height="80px">
     <p class="title mt-3">Nombre del Producto: {{ product.productName }} </p>
-    <p class="price mt-3"> Precio: $ {{ product.price }} </p>
     <p class="quantity">Quantity: {{ product.quantity }} </p>
+    <p class="price mt-3">Unit price: {{ product.price | currency }} </p>
     <p class="">SKU: {{ product.sku }} </p>
 </div>
