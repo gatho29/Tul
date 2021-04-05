@@ -23,7 +23,9 @@ export class ProductsService {
 
   getProductsByCart(cartId) {
     const { uid } = this.authservice.user
-    return this.firestore.collection(`${uid}/productCarts/items`, ref => ref.where('cartId', '==', cartId)).get();
+    return this.firestore.collection(`${uid}/productCarts/items`, ref => ref.where('cartId', '==', cartId)).snapshotChanges().pipe(
+      map(snapshot => snapshot.map(p => ({ id: p.payload.doc.id, ...p.payload.doc.data() as any })))
+    );
   }
 
 }

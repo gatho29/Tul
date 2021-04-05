@@ -14,10 +14,10 @@ export class OrderProductComponent implements OnInit {
   @Input() quantity;
   img: any;
 
+
   constructor(private sanitizer: DomSanitizer, private orderService: OrderService) { }
 
   ngOnInit(): void {
-    console.log(this.product);
     this.getImageLink(this.product.imageLink)
   }
 
@@ -26,19 +26,24 @@ export class OrderProductComponent implements OnInit {
   }
 
   removeProduct(product) {
-    console.log(product);
     this.orderService.getPendingCart().subscribe((response) => {
       const id = response.docs[0].id
-      this.orderService.removeProduct(product.id, product.uid).then((response) => {
-        console.log(response);
-        // Swal.fire({
-        //   icon: 'success',
-        //   title: 'Brilliant',
-        //   text: 'Your product was removed to the cart',
-        // })
-      }).catch(error => {
-        console.log(error);
+      Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#209cee',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.orderService.removeProduct(product.id).then(() => {
+            Swal.fire({ icon: 'success', title: 'Success', text: 'Product removed', confirmButtonColor: '#209cee' })
+          }).catch(error => Swal.fire({ icon: 'error', title: 'Error!', text: error.message }))
+        }
       })
+
     })
   }
 }

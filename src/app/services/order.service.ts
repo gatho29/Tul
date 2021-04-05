@@ -34,9 +34,9 @@ export class OrderService {
     return this.firestore.collection(`${uid}/carts/items`, ref => ref.where('status', '==', 'completed')).get();
   }
 
-  removeProduct(collectionId, productId) {
+  removeProduct(collectionId) {
     const { uid } = this.authService.user;
-    return this.firestore.doc(`${uid}/productCarts/items/${collectionId}/${productId}`).delete();
+    return this.firestore.doc(`${uid}/productCarts/items/${collectionId}`).delete();
   }
 
 }
