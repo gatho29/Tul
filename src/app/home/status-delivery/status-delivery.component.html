@@ -1,4 +1,4 @@
-<mat-card>
-    <h2>Delivery status</h2>
+<mat-card *ngFor="let order of orders">
+    <h2>Order status: {{ order.status }} </h2>
     <mat-progress-bar mode="buffer" value="40"></mat-progress-bar>
 </mat-card>

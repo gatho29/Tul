@@ -4,6 +4,7 @@ import { AddProductComponent } from '../add-product/add-product.component'
 import { OrderComponent } from '../order/order.component'
 import { Router } from '@angular/router';
 import { StatusDeliveryComponent } from '../../home/status-delivery/status-delivery.component'
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -18,7 +19,8 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   constructor(
     private dialog: MatDialog,
-    private router: Router) { }
+    private router: Router,
+    private authService: AuthService) { }
 
   ngOnInit(): void {
   }
@@ -42,6 +44,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   logout(): void {
+    this.authService.logout();
     this.router.navigate(['login']);
   }
 }

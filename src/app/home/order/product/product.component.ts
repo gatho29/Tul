@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-order-product',
@@ -6,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./product.component.scss']
 })
 export class OrderProductComponent implements OnInit {
-  
-  constructor() { }
+
+  @Input() product;
+  @Input() quantity;
+  img: any;
+
+  constructor(private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
+    this.getImageLink(this.product.imageLink)
   }
 
+  getImageLink(url) {
+    this.img = this.sanitizer.bypassSecurityTrustUrl(url)
+  }
 }

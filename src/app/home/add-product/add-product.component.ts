@@ -21,6 +21,7 @@ export class AddProductComponent implements OnInit {
       productName: ['', [Validators.required]],
       description: ['', [Validators.required]],
       price: ['', [Validators.required]],
+      quantity: ['', [Validators.required]],
       sku: ['', [Validators.required]],
       imageLink: ['',[Validators.required]]
     })

@@ -1,10 +1,9 @@
 <div class="order-product my-3 ml-3">
-    <img class="img" width="50px" height="50px"
-        src="https://www.bellota.com/var/site/storage/images/_aliases/large/0/8/2/4/414280-1-esl-EU/8002.MAIN.png"
-        alt="product">
+    <img class="img" width="50px" height="50px" [src]="img" alt="product">
     <div class="content">
-        <p class="mb-1">Lorem, ipsum dolor.</p>
-        <p class="mb-1">$400</p>
+        <p class="mb-1">{{ product.productName }}</p>
+        <p class="mb-1">${{ product.price }}</p>
+        <p class="mb-1">{{ quantity }}</p>
     </div>
     <div>
         <button mat-button color="warn">Remove</button>

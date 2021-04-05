@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { OrderService } from 'src/app/services/order.service';
 
 @Component({
   selector: 'app-status-delivery',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StatusDeliveryComponent implements OnInit {
 
-  constructor() { }
+  orders;
+
+  constructor(
+    private orderService: OrderService
+  ) { }
 
   ngOnInit(): void {
+    this.getOrders();
+  }
+
+  getOrders() {
+    this.orderService.getOrders().subscribe((response) => {
+      this.orders = response.docs.map(order => order.data())
+})
   }
 
 }

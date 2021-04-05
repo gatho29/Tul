@@ -2,8 +2,8 @@
     <img [src]="img"
         alt="product" width="100px" height="100px">
     <p class="title mt-3"> {{ product.productName }} </p>
-    <p class="price mt-3 mb-4"> {{ product.price }} </p>
+    <p class="price mt-3 mb-4">Precio: $ {{ product.price }} </p>
 
-    <button mat-flat-button class="bg-primary text-white mr-2">Add</button>
+    <button mat-flat-button class="bg-primary text-white mr-2" (click)="addProduct()">Add</button>
     <button mat-button color="primary" (click)="viewDetails()">Details</button>
 </div>

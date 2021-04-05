@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { OrderService } from 'src/app/services/order.service';
+import { ProductsService } from 'src/app/services/products.service';
 import Swal from 'sweetalert2'
 
 
@@ -19,7 +21,8 @@ export class SignupComponent implements OnInit {
     private fb: FormBuilder,
     private snackBar: MatSnackBar,
     private authService: AuthService,
-    private router: Router) { }
+    private router: Router,
+    private orderService: OrderService) { }
 
   ngOnInit(): void {
     this.singAlert();
@@ -38,16 +41,16 @@ export class SignupComponent implements OnInit {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
-        text: 'All fields are required'})
+        text: 'All fields are required'
+      })
       return
     }
-    this.authService.signUp(this.signupForm.value).then((response) => {
-          if (response) {
-            this.snackBar.open(`🙌 Welcome ${response?.user?.email}`, '', { duration: 2000 })
-            this.router.navigate(['home']);
-          }
-        }).catch(error => {
-          this.snackBar.open(`😢 ${error}`, '', { duration: 5000 })
-        })
+    this.authService.signUp(this.signupForm.value).then((user) => {
+      this.snackBar.open(`🙌 Welcome ${user?.email}`, '', { duration: 2000 })
+      this.orderService.createPendingCart();
+      this.router.navigate(['home']);
+    }).catch(error => {
+      this.snackBar.open(`😢 ${error}`, '', { duration: 5000 })
+    })
   }
-  }
+}

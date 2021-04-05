@@ -1,13 +1,12 @@
 .product-card {
     background-color: white;
     border-radius: 10px;
+    height: 250px;
     text-align: center;
-    padding: 2rem;
+    padding: 3rem;
+    width: 200px;
 
     .title {
         font-size: 20px;
-    }
-    .price {
-        font-size: 15px;
     }
 }
