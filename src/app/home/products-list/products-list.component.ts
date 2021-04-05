@@ -8,18 +8,18 @@ import { ProductsService } from 'src/app/services/products.service';
 })
 export class ProductListComponent implements OnInit {
 
-  products = []
+  products = [];
 
-  constructor(
-    private productService: ProductsService
-  ) { }
+  constructor(private productService: ProductsService) { }
 
   ngOnInit(): void {
+    this.getProducts();
+  }
+
+  getProducts(): void {
     this.productService.getProducts().subscribe((products) => {
       this.products = products;
-      console.log(products);
     });
 
   }
-
 }

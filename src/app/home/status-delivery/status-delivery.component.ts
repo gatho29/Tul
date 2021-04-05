@@ -8,11 +8,9 @@ import { OrderService } from 'src/app/services/order.service';
 })
 export class StatusDeliveryComponent implements OnInit {
 
-  orders;
+  orders: any;
 
-  constructor(
-    private orderService: OrderService
-  ) { }
+  constructor(private orderService: OrderService) { }
 
   ngOnInit(): void {
     this.getOrders();
@@ -21,7 +19,7 @@ export class StatusDeliveryComponent implements OnInit {
   getOrders() {
     this.orderService.getOrders().subscribe((response) => {
       this.orders = response.docs.map(order => order.data())
-})
+    })
   }
 
 }

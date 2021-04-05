@@ -15,26 +15,27 @@ export class AddProductComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private snackBar: MatSnackBar,
-    private productService: ProductsService,
-  ) { 
+    private productService: ProductsService) {
+  }
+
+  ngOnInit(): void {
+    this.onInitForm();
+  }
+
+  onInitForm(): void {
     this.addProductForm = this.fb.group({
       productName: ['', [Validators.required]],
       description: ['', [Validators.required]],
       price: ['', [Validators.required]],
       quantity: ['', [Validators.required]],
       sku: ['', [Validators.required]],
-      imageLink: ['',[Validators.required]]
+      imageLink: ['', [Validators.required]]
     })
-   }
-
-  ngOnInit(): void {
   }
 
   add() {
-    this.snackBar.open('probando', '', {duration: 600})
-    this.productService.createProduct(this.addProductForm.value).then((response)=>{
-      console.log(response);
-      
+    this.productService.createProduct(this.addProductForm.value).then((response) => {
+      // TODO: mostrar aqui la alerta exitosa al registrar un producto
     })
   }
 }

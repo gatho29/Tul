@@ -10,42 +10,36 @@ import Swal from 'sweetalert2';
 })
 export class OrderComponent implements OnInit {
 
-  products;
-  cart;
+  products: any;
+  cart: any;
 
-  constructor(
-    private productService: ProductsService,
-    private orderService: OrderService
-  ) { }
+  constructor(private productService: ProductsService, private orderService: OrderService) { }
 
   ngOnInit(): void {
-   this.getCart()
+    this.getCart()
   }
 
-  getProducts(cartId) {
+  getProducts(cartId): void {
     this.productService.getProductsByCart(cartId).subscribe((response) => {
-      console.log(response.docs.map(d => (d.data())));
       this.products = response.docs.map(d => (d.data()));
     })
   }
 
-  buyOrder() {
-    this.orderService.buy(this.cart.uid).then(()=>{
+  buyOrder(): void {
+    this.orderService.buy(this.cart.uid).then(() => {
       this.orderService.createPendingCart();
       this.getCart();
       Swal.fire({
-        icon: 'success',
-        title: 'Completed',
-        text: 'Thanks'
-      })
+        icon: 'success', title: 'Completed', text: 'Thanks'
+      });
     })
   }
 
-getCart(){
-  this.orderService.getPendingCart().subscribe((response) => {
-    this.getProducts(response.docs[0].id)
-    this.cart = {...response.docs[0].data() as any, uid:response.docs[0].id}
-  })
-}
+  getCart(): void {
+    this.orderService.getPendingCart().subscribe((response) => {
+      this.getProducts(response.docs[0].id)
+      this.cart = { ...response.docs[0].data() as any, uid: response.docs[0].id }
+    })
+  }
 
 }

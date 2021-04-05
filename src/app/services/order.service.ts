@@ -7,19 +7,16 @@ import { AuthService } from './auth.service';
 })
 export class OrderService {
 
-  constructor(
-    private firestore: AngularFirestore,
-    private authService: AuthService
-  ) { }
+  constructor(private firestore: AngularFirestore, private authService: AuthService) { }
 
   buy(cartId) {
     const { uid } = this.authService.user;
-    return this.firestore.doc(`${uid}/carts/items/${cartId}`).update({status:'completed'})
+    return this.firestore.doc(`${uid}/carts/items/${cartId}`).update({ status: 'completed' });
   }
 
   createPendingCart() {
     const { uid } = this.authService.user
-    return this.firestore.collection(`${uid}/carts/items`).add({ status: 'pending' })
+    return this.firestore.collection(`${uid}/carts/items`).add({ status: 'pending' });
   }
 
   getPendingCart() {
@@ -32,9 +29,9 @@ export class OrderService {
     return this.firestore.collection(`${uid}/productCarts/items`).add({ cartId, productId, qty });
   }
 
-getOrders(){
-  const { uid } = this.authService.user
-  return this.firestore.collection(`${uid}/carts/items`, ref => ref.where('status', '==', 'completed')).get();
-}
+  getOrders() {
+    const { uid } = this.authService.user
+    return this.firestore.collection(`${uid}/carts/items`, ref => ref.where('status', '==', 'completed')).get();
+  }
 
 }

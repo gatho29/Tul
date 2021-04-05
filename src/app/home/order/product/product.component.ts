@@ -18,7 +18,7 @@ export class OrderProductComponent implements OnInit {
     this.getImageLink(this.product.imageLink)
   }
 
-  getImageLink(url) {
+  getImageLink(url): void {
     this.img = this.sanitizer.bypassSecurityTrustUrl(url)
   }
 }
