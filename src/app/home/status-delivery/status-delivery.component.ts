@@ -8,7 +8,7 @@ import { OrderService } from 'src/app/services/order.service';
 })
 export class StatusDeliveryComponent implements OnInit {
 
-  orders: any;
+  orders = [];
 
   constructor(private orderService: OrderService) { }
 

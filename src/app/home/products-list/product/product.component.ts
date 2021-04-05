@@ -59,7 +59,11 @@ export class ProductOnListComponent implements OnInit {
     this.orderService.getPendingCart().subscribe((response) => {
       const id = response.docs[0].id
       this.orderService.addProduct(id, this.product, qty).then((response) => {
-        // TODO: mostrar alerta cuando de que se agrego el producto correctamente al carrito
+        Swal.fire({
+          icon: 'success',
+          title: 'Brilliant',
+          text: 'Your product was added to the cart',
+        })
       })
     })
   }

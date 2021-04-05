@@ -2,10 +2,10 @@
     <img class="img" width="50px" height="50px" [src]="img" alt="product">
     <div class="content">
         <p class="mb-1">{{ product.productName }}</p>
-        <p class="mb-1">${{ product.price }}</p>
-        <p class="mb-1">{{ quantity }}</p>
+        <p class="mb-1">{{ product.price | currency }}</p>
+        <p class="mb-1">Quantity: {{ quantity }}</p>
     </div>
     <div>
-        <button mat-button color="warn">Remove</button>
+        <button mat-button color="warn" (click)="removeProduct(product)">Remove</button>
     </div>
 </div>

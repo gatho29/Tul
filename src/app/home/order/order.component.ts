@@ -10,7 +10,7 @@ import Swal from 'sweetalert2';
 })
 export class OrderComponent implements OnInit {
 
-  products: any;
+  products = [];
   cart: any;
 
   constructor(private productService: ProductsService, private orderService: OrderService) { }
@@ -21,7 +21,10 @@ export class OrderComponent implements OnInit {
 
   getProducts(cartId): void {
     this.productService.getProductsByCart(cartId).subscribe((response) => {
-      this.products = response.docs.map(d => (d.data()));
+      this.products = response.docs.map(d => {
+        return { ...d.data() as any, id: d.id };
+      });
+      console.log(this.products);
     })
   }
 
@@ -40,6 +43,13 @@ export class OrderComponent implements OnInit {
       this.getProducts(response.docs[0].id)
       this.cart = { ...response.docs[0].data() as any, uid: response.docs[0].id }
     })
+  }
+
+  getProduct(product: any): any {
+    return {
+      id: product.id,
+      ...product.productId,
+    }
   }
 
 }

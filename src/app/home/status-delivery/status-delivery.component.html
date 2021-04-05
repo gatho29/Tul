@@ -1,4 +1,12 @@
-<mat-card *ngFor="let order of orders">
-    <h2>Order status: {{ order.status }} </h2>
-    <mat-progress-bar mode="buffer" value="40"></mat-progress-bar>
-</mat-card>
+<div class="contenedor">
+    <h1>Purchase status</h1>
+    <div *ngIf="orders.length === 0">
+        <p>Empty orders</p>
+        <img src="../../../assets/images/vacio.png" width="300px" height="200px">
+    </div>
+    <mat-card *ngFor="let order of orders" class="mt-3">
+        <h2>Order status: {{ order.status }} </h2>
+        <p>Your order is ready</p>
+        <img src="../../../assets/images/pedido.png" width="150px" height="100px">
+    </mat-card>
+</div>

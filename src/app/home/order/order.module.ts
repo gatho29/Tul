@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { OrderComponent } from './order.component';
-import { OrderProductComponent } from './product/product.component';
+import { OrderProductComponent } from './order-product/order-product.component';
 import { MaterialModule } from 'src/app/material.module';
 
 @NgModule({
