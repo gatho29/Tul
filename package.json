@@ -24,6 +24,7 @@
     "@angular/router": "~11.2.7",
     "express": "^4.17.1",
     "firebase": "^7.0 || ^8.0",
+    "path": "^0.12.7",
     "rxjs": "~6.6.0",
     "sweetalert2": "^10.15.7",
     "tslib": "^2.0.0",
